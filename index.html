@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EduSpark — Onlayn IT kasblari maktabi</title>
+<meta name="description" content="EduSpark — dasturlash, dizayn va marketing bo'yicha amaliy onlayn kurslar. Mentor bilan 1:1 ish, real loyihalar, ish topishga yordam." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --violet:#6c4cf1;
+  --violet-dark:#4a2fd6;
+  --mint:#16d6b0;
+  --ink:#111528;
+  --body:#4c5670;
+  --soft:#f4f3fb;
+  --soft-2:#eceafb;
+  --line:#e3e1f2;
+  --radius:24px;
+  --max:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.62;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.1;letter-spacing:-.025em}
+.grad{background:linear-gradient(100deg,var(--violet),#a55cff 55%,var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:14px;font-weight:700;font-size:15px;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .25s}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 16px 32px -16px rgba(108,76,241,.85)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--violet-dark);box-shadow:0 22px 40px -18px rgba(108,76,241,.9)}
+.btn-soft{background:var(--soft);color:var(--ink);border-color:var(--line)}
+.btn-soft:hover{background:var(--soft-2);transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{transform:translateY(-2px)}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:8px 15px;border-radius:999px;background:var(--soft-2);color:#4a3b9e;font-size:12.5px;font-weight:700;letter-spacing:.02em}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--mint);font-style:normal;box-shadow:0 0 0 4px rgba(22,214,176,.2)}
+section{padding:92px 0}
+.sec-head{max-width:660px;margin-bottom:50px}
+.sec-head h2{font-size:clamp(28px,3.6vw,44px);font-weight:700;margin:16px 0 14px}
+.sec-head p{color:var(--body);font-size:16.5px}
+.center{text-align:center;margin-inline:auto}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.86);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.scrolled{border-color:var(--line);box-shadow:0 8px 24px -20px rgba(17,21,40,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:700;font-size:20px}
+.logo-mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--violet),var(--mint));display:grid;place-items:center;color:#fff;font-size:15px;font-weight:800;flex:none}
+.links{display:flex;gap:26px;font-size:15px;font-weight:600;color:var(--body)}
+.links a{transition:color .2s}
+.links a:hover{color:var(--violet)}
+.nav-act{display:flex;align-items:center;gap:12px}
+.nav-act .login{font-size:15px;font-weight:700;color:var(--body)}
+@media(max-width:940px){.links{display:none}.nav-act .login{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:70px 0 90px;overflow:hidden;background:
+  radial-gradient(900px 520px at 85% 0%,rgba(108,76,241,.13),transparent 62%),
+  radial-gradient(700px 500px at 0% 100%,rgba(22,214,176,.14),transparent 65%);}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(34px,4.9vw,60px);font-weight:800;margin:20px 0 20px}
+.hero p.lead{font-size:17.5px;color:var(--body);max-width:50ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin:30px 0 26px}
+.hero-proof{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--body)}
+.avatars{display:flex}
+.avatars span{width:34px;height:34px;border-radius:50%;border:2.5px solid #fff;margin-left:-10px;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+.avatars span:first-child{margin-left:0}
+.viz{position:relative}
+.viz-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 40px 80px -50px rgba(17,21,40,.5)}
+.viz-card .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.viz-card .row b{font-size:15px}
+.viz-card .row span{font-size:12px;font-weight:700;color:var(--mint);background:rgba(22,214,176,.12);padding:5px 10px;border-radius:999px}
+.lesson{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:var(--soft);margin-bottom:10px;transition:transform .3s var(--ease)}
+.lesson:hover{transform:translateX(4px)}
+.lesson .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:#fff;font-size:16px;flex:none;border:1px solid var(--line)}
+.lesson b{font-size:13.8px;display:block;line-height:1.3}
+.lesson small{font-size:12px;color:var(--body)}
+.progress{height:6px;border-radius:99px;background:var(--soft-2);overflow:hidden;margin-top:14px}
+.progress i{display:block;height:100%;width:68%;border-radius:99px;background:linear-gradient(90deg,var(--violet),var(--mint))}
+.float-card{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 16px;box-shadow:0 24px 48px -30px rgba(17,21,40,.45);font-size:13px;font-weight:600;display:flex;align-items:center;gap:9px}
+.float-card .dot{width:26px;height:26px;border-radius:9px;background:rgba(108,76,241,.12);color:var(--violet);display:grid;place-items:center;font-size:13px}
+.f1{top:-18px;right:-6px;animation:bob 5.5s ease-in-out infinite}
+.f2{bottom:-20px;left:-12px;animation:bob 5.5s ease-in-out infinite .8s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:42px}.hero{padding:46px 0 66px}.f1,.f2{display:none}}
+
+/* ---------- logos strip ---------- */
+.strip{padding:26px 0;border-block:1px solid var(--line);background:#fff}
+.strip .wrap{display:flex;align-items:center;gap:38px;flex-wrap:wrap;justify-content:space-between}
+.strip span{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9aa1b8}
+.strip b{font-family:'Sora',sans-serif;font-size:16px;color:#c2c7d6;letter-spacing:-.01em}
+
+/* ---------- tracks ---------- */
+.tracks{background:var(--soft)}
+.grid-c{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.track{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.track:hover{transform:translateY(-6px);box-shadow:0 32px 60px -34px rgba(17,21,40,.35);border-color:#c9bdfa}
+.track .emoji{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:24px;background:var(--soft);margin-bottom:18px}
+.track h3{font-size:20px;margin-bottom:8px}
+.track p{font-size:14.5px;color:var(--body);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.chip{font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;background:var(--soft);color:#4a5670}
+.track .foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700}
+.track .foot small{color:var(--body);font-weight:600;font-size:12.5px;display:block}
+.track .foot .arrow{width:32px;height:32px;border-radius:50%;background:var(--soft);display:grid;place-items:center;transition:background .3s,transform .3s}
+.track:hover .foot .arrow{background:var(--violet);color:#fff;transform:rotate(-45deg)}
+@media(max-width:940px){.grid-c{grid-template-columns:1fr}}
+
+/* ---------- how ---------- */
+.how-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:18px;padding:22px;border-radius:18px;border:1px solid var(--line);background:#fff;transition:border-color .3s,transform .3s var(--ease)}
+.step:hover{border-color:#c9bdfa;transform:translateX(4px)}
+.step .n{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:15px;background:var(--soft-2);color:var(--violet)}
+.step b{display:block;font-size:16px;margin-bottom:4px}
+.step p{font-size:14px;color:var(--body)}
+.panel{background:linear-gradient(165deg,#171a2e,#241b4d);color:#fff;border-radius:28px;padding:34px;position:relative;overflow:hidden}
+.panel::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(108,76,241,.55),transparent 70%);top:-120px;right:-90px}
+.panel h3{font-size:22px;margin-bottom:8px;position:relative}
+.panel .sub{font-size:14px;color:rgba(255,255,255,.62);margin-bottom:24px;position:relative}
+.mentor{display:flex;align-items:center;gap:13px;padding:13px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);margin-bottom:11px;position:relative}
+.mentor .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--mint));display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+.mentor b{font-size:14px;display:block}
+.mentor small{font-size:12.3px;color:rgba(255,255,255,.6)}
+.mentor .on{margin-left:auto;font-size:11px;font-weight:700;color:var(--mint);background:rgba(22,214,176,.14);padding:4px 9px;border-radius:999px}
+@media(max-width:940px){.how-grid{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- stats ---------- */
+.stats{background:#fff;padding:0}
+.stat-band{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:44px;border-radius:28px;background:var(--soft);border:1px solid var(--line)}
+.stat-band div b{font-family:'Sora',sans-serif;font-size:clamp(28px,3.4vw,40px);display:block;line-height:1;color:var(--violet)}
+.stat-band div span{font-size:13.5px;color:var(--body);font-weight:600}
+@media(max-width:820px){.stat-band{grid-template-columns:1fr 1fr;padding:28px;gap:22px}}
+
+/* ---------- pricing ---------- */
+.pricing{background:var(--soft)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
+.plan:hover{transform:translateY(-5px);box-shadow:0 30px 58px -34px rgba(17,21,40,.35)}
+.plan.hot{background:linear-gradient(170deg,#5b3ce6,#3d21b5);color:#fff;border-color:transparent;position:relative;box-shadow:0 30px 60px -30px rgba(74,47,214,.6)}
+.plan.hot .muted{color:rgba(255,255,255,.7)}
+.plan.hot .feat li{color:rgba(255,255,255,.9)}
+.plan.hot .feat li::before{color:#9df5e0}
+.hb{position:absolute;top:20px;right:20px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--mint);color:#06231d;padding:6px 11px;border-radius:999px}
+.plan h3{font-size:19px;margin-bottom:6px}
+.plan .muted{font-size:13.5px;color:var(--body)}
+.plan .price{font-family:'Sora',sans-serif;font-size:38px;font-weight:700;margin:16px 0 2px;line-height:1}
+.plan .price small{font-size:14px;font-weight:600;opacity:.65}
+.feat{list-style:none;display:grid;gap:11px;margin:24px 0 26px;font-size:14.5px;color:#39425a}
+.feat li{display:flex;gap:10px;align-items:flex-start}
+.feat li::before{content:"✓";font-weight:800;color:var(--violet)}
+.plan .btn{width:100%;margin-top:auto}
+@media(max-width:940px){.plans{grid-template-columns:1fr}}
+
+/* ---------- reviews ---------- */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{border:1px solid var(--line);border-radius:20px;padding:26px;background:#fff;display:flex;flex-direction:column;gap:14px;transition:transform .35s var(--ease),box-shadow .35s}
+.rev:hover{transform:translateY(-4px);box-shadow:0 26px 50px -36px rgba(17,21,40,.4)}
+.rev .stars{color:#ffb637;font-size:14px;letter-spacing:2px}
+.rev p{font-size:15px;color:#2c3348}
+.rev .who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:8px}
+.rev .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;font-size:14px;flex:none}
+.rev .who b{font-size:14px;display:block}
+.rev .who span{font-size:12.5px;color:var(--body)}
+@media(max-width:940px){.rev-grid{grid-template-columns:1fr}}
+
+/* ---------- faq ---------- */
+.faq{background:var(--soft)}
+.faq-list{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.qa{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px;background:none;border:0;font-family:inherit;font-size:16px;font-weight:700;color:var(--ink);text-align:left;cursor:pointer}
+.qa .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:15px;transition:transform .35s var(--ease),background .3s,color .3s}
+.qa.open .ic{transform:rotate(45deg);background:var(--violet);color:#fff}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.qa .ans p{padding:0 24px 22px;color:var(--body);font-size:14.8px}
+
+/* ---------- cta ---------- */
+.cta{padding:0 0 90px}
+.cta-box{position:relative;overflow:hidden;border-radius:32px;padding:56px;background:linear-gradient(120deg,#14172b 0%,#2a1a63 60%,#3d21b5 100%);color:#fff;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.cta-box::before{content:"";position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(22,214,176,.35),transparent 68%);bottom:-200px;left:-120px}
+.cta-box h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;margin-bottom:14px;position:relative}
+.cta-box p{color:rgba(255,255,255,.75);position:relative;max-width:44ch}
+.cta-box .perks{list-style:none;display:grid;gap:11px;margin-top:24px;font-size:14.5px;color:rgba(255,255,255,.86);position:relative}
+.cta-box .perks li{display:flex;gap:10px}
+.cta-box .perks li::before{content:"✓";color:var(--mint);font-weight:800}
+form.lead{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:28px;display:grid;gap:13px;position:relative;backdrop-filter:blur(8px)}
+form.lead label{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+form.lead input,form.lead select{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(10,12,26,.5);color:#fff;font-family:inherit;font-size:15px;transition:border-color .25s,box-shadow .25s}
+form.lead input::placeholder{color:rgba(255,255,255,.35)}
+form.lead input:focus,form.lead select:focus{outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(22,214,176,.2)}
+form.lead .btn{width:100%;background:var(--mint);color:#04241e;margin-top:4px}
+form.lead .btn:hover{background:#0ec2a0}
+form .note{font-size:12px;color:rgba(255,255,255,.45)}
+.ok{display:none;padding:11px;text-align:center;border-radius:12px;background:rgba(22,214,176,.16);border:1px solid rgba(22,214,176,.4);font-size:14px;color:#9df5e0}
+.ok.show{display:block}
+@media(max-width:940px){.cta-box{grid-template-columns:1fr;padding:34px;gap:30px}}
+
+/* ---------- footer ---------- */
+footer{background:#0c0e1c;color:rgba(255,255,255,.6);padding:58px 0 28px;font-size:14px}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;margin-bottom:42px}
+.f-top h4{color:#fff;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
+.f-top ul{list-style:none;display:grid;gap:10px}
+.f-top a:hover{color:#fff}
+.f-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.8px}
+@media(max-width:820px){.f-top{grid-template-columns:1fr 1fr;gap:26px}}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.f1,.f2{animation:none}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span class="logo-mark">E</span> EduSpark</a>
+    <nav class="links">
+      <a href="#tracks">Yo'nalishlar</a>
+      <a href="#how">Qanday ishlaydi</a>
+      <a href="#pricing">Narxlar</a>
+      <a href="#reviews">Fikrlar</a>
+      <a href="#faq">Savollar</a>
+    </nav>
+    <div class="nav-act">
+      <a href="#signup" class="login">Kirish</a>
+      <a href="#signup" class="btn btn-primary">Bepul dars</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag"><i></i> Yangi oqim: 12-noyabr</span>
+      <h1>Kasbni <span class="grad">amalda</span> o'rganing</h1>
+      <p class="lead">Dasturlash, dizayn va marketing bo'yicha onlayn kurslar. Har hafta jonli dars, mentor bilan 1:1 uchrashuv va real mijoz loyihasi — portfoliongiz tugatishda tayyor bo'ladi.</p>
+      <div class="hero-cta">
+        <a href="#signup" class="btn btn-primary">Bepul sinov darsi</a>
+        <a href="#tracks" class="btn btn-soft">Yo'nalishlar →</a>
+      </div>
+      <div class="hero-proof">
+        <div class="avatars">
+          <span style="background:#6c4cf1">D</span>
+          <span style="background:#16b7a1">S</span>
+          <span style="background:#f0883e">M</span>
+          <span style="background:#3b6ef0">A</span>
+        </div>
+        <div><b style="color:var(--ink)">3 400+</b> o'quvchi allaqachon o'qigan · reyting 4.9/5</div>
+      </div>
+    </div>
+    <div class="viz">
+      <div class="viz-card">
+        <div class="row"><b>Bugungi dars</b><span>Jonli</span></div>
+        <div class="lesson"><div class="ic">💻</div><div><b>React: komponentlar amalda</b><small>19:00 · 90 daqiqa</small></div></div>
+        <div class="lesson"><div class="ic">🎯</div><div><b>Vazifa: mini dashboard</b><small>Muddat: 14-noyabr</small></div></div>
+        <div class="lesson"><div class="ic">🧑‍🏫</div><div><b>Mentor bilan 1:1</b><small>Payshanba, 20:30</small></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--body);margin-top:16px"><span>Kurs progressi</span><b>68%</b></div>
+        <div class="progress"><i></i></div>
+      </div>
+      <div class="float-card f1"><span class="dot">✓</span> Portfolio 1-loyiha tayyor</div>
+      <div class="float-card f2"><span class="dot">★</span> Mentor javobi: 2 soat ichida</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Bitiruvchilar ishlaydi:</span>
+    <b>Uzum</b><b>Payme</b><b>Click</b><b>EPAM</b><b>Beeline</b><b>IT Park</b>
+  </div>
+</div>
+
+<section id="tracks" class="tracks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><i></i> Yo'nalishlar</span>
+      <h2>Qaysi kasbni tanlaysiz?</h2>
+      <p>Har bir yo'nalish 4-6 oy. Noldan boshlanadi, lekin ish tempiga moslashgan: haftasiga 8-10 soat vaqt yetadi.</p>
+    </div>
+    <div class="grid-c">
+      <article class="track reveal">
+        <div class="emoji">💻</div>
+        <h3>Frontend dasturlash</h3>
+        <p>HTML/CSS dan React va TypeScript gacha. Real loyihalar bilan ishlash.</p>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">TypeScript</span></div>
+        <div class="foot"><div><small>Davomiyligi</small>6 oy</div><div class="arrow">→</div></div>
+      </article>
+      <article class="track reveal">
+        <div class="emoji">🎨</div>
+        <h3>UI/UX dizayn</h3>
+        <p>Figma, dizayn tizimlari, prototiplash va mijoz bilan ishlash.</p>
+        <div class="chips"><span class="chip">Figma</span><span class="chip">Design system</span><span class="chip">UX research</span></div>
+        <div class="foot"><div><small>Davomiyligi</small>4 oy</div><div class="arrow">→</div></div>
+      </article>
+      <article class="track reveal">
+        <div class="emoji">📈</div>
+        <h3>Raqamli marketing</h3>
+        <p>Target, kontent va analitika. Real byudjet bilan kampaniya yuritish.</p>
+        <div class="chips"><span class="chip">Meta Ads</span><span class="chip">Analitika</span><span class="chip">Kontent</span></div>
+        <div class="foot"><div><small>Davomiyligi</small>5 oy</div><div class="arrow">→</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap how-grid">
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:30px">
+        <span class="tag"><i></i> Tizim</span>
+        <h2>O'qish qanday kechadi</h2>
+        <p>Video kurs emas. Har hafta jonli dars, vazifa va tekshiruv bor — shuning uchun tugatish darajasi yuqori.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><b>Kirish testi va suhbat</b><p>15 daqiqalik suhbatdan keyin darajangizga mos guruhga tushasiz.</p></div></div>
+        <div class="step"><div class="n">2</div><div><b>Haftada 2 jonli dars</b><p>Har dars yozib olinadi, o'tkazib yuborsangiz keyin ko'rasiz.</p></div></div>
+        <div class="step"><div class="n">3</div><div><b>Vazifa va fikr-mulohaza</b><p>Har vazifaga mentor 48 soat ichida yozma fikr beradi.</p></div></div>
+        <div class="step"><div class="n">4</div><div><b>Yakuniy loyiha va himoya</b><p>Portfolio loyihasini mentorlar komissiyasi oldida himoya qilasiz.</p></div></div>
+      </div>
+    </div>
+    <div class="panel reveal">
+      <h3>Mentorlar</h3>
+      <div class="sub">Hammasi amaldagi mutaxassislar</div>
+      <div class="mentor"><div class="av">AK</div><div><b>Aziz Karimov</b><small>Senior Frontend · 8 yil</small></div><span class="on">online</span></div>
+      <div class="mentor"><div class="av">MN</div><div><b>Madina Nazarova</b><small>Product Designer · 6 yil</small></div><span class="on">online</span></div>
+      <div class="mentor"><div class="av">JT</div><div><b>Jasur Toshmatov</b><small>Performance Marketing · 7 yil</small></div><span class="on">online</span></div>
+      <p style="font-size:13px;color:rgba(255,255,255,.6);margin-top:16px;position:relative">Har bir guruhda 14 kishi, bitta mentorga 7 kishi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-band reveal">
+      <div><b>3 400+</b><span>bitiruvchi</span></div>
+      <div><b>82%</b><span>6 oyda ish topdi</span></div>
+      <div><b>4.9/5</b><span>o'quvchi bahosi</span></div>
+      <div><b>2 soat</b><span>mentor javob vaqti</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><i></i> Narxlar</span>
+      <h2>Ochiq va tushunarli</h2>
+      <p>To'lovni 3 qismga bo'lish mumkin. Qaytarish sharti: birinchi 2 hafta ichida.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Self-paced</h3>
+        <div class="muted">O'zingizcha o'qish</div>
+        <div class="price">490 000 <small>so'm/oy</small></div>
+        <ul class="feat">
+          <li>Barcha video darslar</li>
+          <li>Vazifalar va avtomatik testlar</li>
+          <li>Yopiq chat guruhi</li>
+          <li>Mentor 1:1 yo'q</li>
+        </ul>
+        <a href="#signup" class="btn btn-soft">Tanlash</a>
+      </div>
+      <div class="plan hot reveal">
+        <span class="hb">Tavsiya</span>
+        <h3>Mentor bilan</h3>
+        <div class="muted" style="color:rgba(255,255,255,.75)">Eng ko'p tanlanadi</div>
+        <div class="price">1 250 000 <small>so'm/oy</small></div>
+        <ul class="feat">
+          <li>Haftada 2 jonli dars</li>
+          <li>Mentor bilan 1:1 (2 soat/oy)</li>
+          <li>Har vazifaga yozma fikr</li>
+          <li>Portfolio loyihasi</li>
+          <li>Ish suhbatiga tayyorlov</li>
+        </ul>
+        <a href="#signup" class="btn btn-white">Tanlash</a>
+      </div>
+      <div class="plan reveal">
+        <h3>Pro</h3>
+        <div class="muted">Tez ishga kirish uchun</div>
+        <div class="price">1 890 000 <small>so'm/oy</small></div>
+        <ul class="feat">
+          <li>Mentor bilan 1:1 (6 soat/oy)</li>
+          <li>Kichik guruh: 7 kishi</li>
+          <li>Rezyume va LinkedIn yordami</li>
+          <li>Ish topilguncha qo'llab-quvvatlash</li>
+        </ul>
+        <a href="#signup" class="btn btn-soft">Tanlash</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><i></i> Fikrlar</span>
+      <h2>Bitiruvchilar tajribasi</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"6 oy ichida frontend o'rganib, 2 oy ichida ishga kirdim. Eng foydalisi — har hafta vazifamga mentor yozma fikr bergani."</p>
+        <div class="who"><div class="av" style="background:#6c4cf1">DA</div><div><b>Doston A.</b><span>Junior Frontend · Uzum</span></div></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Dizaynni yaxshi ko'rardim, lekin portfoliom yo'q edi. Kurs tugaganda 4 ta real loyiha bilan chiqdim."</p>
+        <div class="who"><div class="av" style="background:#16b7a1">SH</div><div><b>Shahnoza H.</b><span>UI/UX Designer · freelance</span></div></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Ish bilan band bo'lsam ham chiqdim: darslar yozib olinadi, mentor bilan vaqtni o'zim belgilayman."</p>
+        <div class="who"><div class="av" style="background:#f0883e">RU</div><div><b>Rustam U.</b><span>Marketing mutaxassisi</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><i></i> Savollar</span>
+      <h2>Ko'p so'raladigan narsalar</h2>
+    </div>
+    <div class="faq-list">
+      <div class="qa"><button>Noldan boshlasam bo'ladimi?<span class="ic">+</span></button><div class="ans"><p>Ha. Kursning birinchi bloki asoslar uchun. Kirish suhbatida kompyuter bilan ishlash tajribangizni tekshiramiz va kerak bo'lsa tayyorlov blokini qo'shamiz.</p></div></div>
+      <div class="qa"><button>Vaqtim kam, haftasiga qancha kerak?<span class="ic">+</span></button><div class="ans"><p>Haftasiga 8-10 soat yetadi: 2 jonli dars (3 soat) va qolgani amaliyot. Barcha darslar yozib olinadi.</p></div></div>
+      <div class="qa"><button>To'lovni bo'lib to'lash mumkinmi?<span class="ic">+</span></button><div class="ans"><p>Ha, 3 qismga. Birinchi 2 hafta ichida kurs yoqmasa, to'lovning 80% qaytariladi.</p></div></div>
+      <div class="qa"><button>Ish topishga yordam berasizmi?<span class="ic">+</span></button><div class="ans"><p>Mentor bilan reja tuzamiz: rezyume, portfolio, test topshiriqlari va suhbatga tayyorlov. Pro tarifda ish topilguncha qo'llab-quvvatlaymiz.</p></div></div>
+      <div class="qa"><button>Darslar qaysi tilda?<span class="ic">+</span></button><div class="ans"><p>Darslar o'zbek tilida, texnik atamalar inglizcha izohlanadi. Materiallar ikkala tilda.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="signup">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div>
+        <h2>Birinchi darsni bepul sinab ko'ring</h2>
+        <p>Ariza qoldiring — 1 ish kuni ichida aloqaga chiqamiz va mos guruhni taklif qilamiz.</p>
+        <ul class="perks">
+          <li>Bepul kirish suhbati va yo'nalish tanlash</li>
+          <li>Demo darsga kirish</li>
+          <li>Majburiyat yo'q</li>
+        </ul>
+      </div>
+      <form class="lead" id="leadForm" novalidate>
+        <div><label for="nm">Ismingiz</label><input id="nm" name="name" placeholder="Ism Familiya" required /></div>
+        <div><label for="ph">Telefon yoki Telegram</label><input id="ph" name="phone" placeholder="+998 90 123 45 67" required /></div>
+        <div><label for="tr">Yo'nalish</label>
+          <select id="tr" name="track">
+            <option>Frontend dasturlash</option>
+            <option>UI/UX dizayn</option>
+            <option>Raqamli marketing</option>
+            <option>Hali aniqlamadim</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">Ariza yuborish</button>
+        <div class="ok" id="ok">Arizangiz qabul qilindi. 1 ish kuni ichida bog'lanamiz.</div>
+        <p class="note">Ma'lumotlaringiz faqat aloqa uchun ishlatiladi.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="#top" class="logo" style="color:#fff;margin-bottom:14px"><span class="logo-mark">E</span> EduSpark</a>
+        <p style="max-width:32ch">Amaliy onlayn ta'lim platformasi: dasturlash, dizayn va marketing.</p>
+      </div>
+      <div><h4>Yo'nalishlar</h4><ul><li><a href="#tracks">Frontend</a></li><li><a href="#tracks">UI/UX</a></li><li><a href="#tracks">Marketing</a></li></ul></div>
+      <div><h4>Platforma</h4><ul><li><a href="#how">Qanday ishlaydi</a></li><li><a href="#pricing">Narxlar</a></li><li><a href="#faq">Savollar</a></li></ul></div>
+      <div><h4>Aloqa</h4><ul><li>+998 90 000 00 00</li><li>hello@eduspark.uz</li><li>@eduspark_support</li></ul></div>
+    </div>
+    <div class="f-bot"><span>© 2026 EduSpark. Namuna loyiha.</span><span>Maxfiylik siyosati · Ommaviy oferta</span></div>
+  </div>
+</footer>
+
+<script>
+const h=document.getElementById('hdr');
+addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>10),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*70+'ms';io.observe(el)});
+document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
+  const it=b.parentElement,open=it.classList.contains('open');
+  document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null});
+  if(!open){it.classList.add('open');const a=it.querySelector('.ans');a.style.maxHeight=a.scrollHeight+'px'}
+}));
+document.getElementById('leadForm').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target;
+  const n=f.name.value.trim(),p=f.phone.value.replace(/\D/g,'');
+  if(n.length<2){f.name.style.borderColor='#ff8a65';f.name.focus();return}
+  if(p.length<9){f.phone.style.borderColor='#ff8a65';f.phone.focus();return}
+  const b=f.querySelector('button[type=submit]');b.textContent='Yuborilmoqda...';
+  setTimeout(()=>{document.getElementById('ok').classList.add('show');b.textContent='Yuborildi ✓';b.disabled=true},650);
+});
+</script>
+</body>
+</html>
